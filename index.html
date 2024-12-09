@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HARB Consulting and Construction</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation Bar -->
+    <header>
+        <div class="container">
+            <!-- Logo Image Above the Name -->
+            <div class="logo-container">
+                <img src="logo1.jpg" alt="HARB Consulting and Construction Logo" class="logo-image">
+                <h1 class="logo">HARB Consulting and Construction</h1> 
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#home" data-lang-key="home">Home</a></li>
+                    <li><a href="#about" data-lang-key="about">About Us</a></li>
+                    <li><a href="#services" data-lang-key="services">Services</a></li>
+                    <li><a href="#contact" data-lang-key="contact">Contact</a></li>
+                    <li>
+                        <label for="language-switcher" class="visually-hidden">Language:</label>
+                        <select id="language-switcher" aria-label="Language Selector">
+                            <option value="en">English</option>
+                            <option value="ar">العربية</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <section id="home">
+            <div class="container">
+                <h2 data-lang-key="welcome">Welcome to HARB Consulting and Construction</h2>
+                <p data-lang-key="home-desc">We provide exceptional construction and consultancy services to meet your needs.</p>
+            </div>
+        </section>
+
+        <section id="about">
+            <div class="container">
+                <h2 data-lang-key="about-title">About Us</h2>
+                <p data-lang-key="about-desc">At HARB Consulting and Construction, we specialize in innovative solutions for building projects.</p>
+            </div>
+        </section>
+
+        <section id="services">
+            <div class="container">
+                <h2 data-lang-key="services-title">Our Services</h2>
+                <ul>
+                    <li data-lang-key="service-1">Construction Management</li>
+                    <li data-lang-key="service-2">Architectural Design</li>
+                    <li data-lang-key="service-3">Project Consultancy</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact">
+            <div class="container">
+                <h2 data-lang-key="contact-title">Contact Us</h2>
+                <form id="contact-form">
+                    <label for="name" data-lang-key="name-label">Name</label>
+                    <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+                    <label for="email" data-lang-key="email-label">Email</label>
+                    <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+                    <label for="message" data-lang-key="message-label">Message</label>
+                    <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
+
+                    <button type="submit" data-lang-key="send-button">Send</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 HARB Consulting and Construction. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://cdn.emailjs.com/dist/email.min.js"></script> <!-- EmailJS SDK -->
+    <script src="script.js"></script> <!-- Link to your external script.js file -->
+
+    <script>
+        // Initialize EmailJS with your user ID
+        emailjs.init('HCCGROUP247'); // Replace with your EmailJS user ID
+
+        // Add event listener to the form
+        document.getElementById('contact-form').addEventListener('submit', function(event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Send the form data to EmailJS
+            emailjs.sendForm('HCCGROUP247', 'template_bcvj1l5', this) // Replace with your Service ID and Template ID
+                .then(function(response) {
+                    console.log('Success:', response);
+                    alert('Your message has been sent!');
+                }, function(error) {
+                    console.log('Error:', error);
+                    alert('Oops! Something went wrong.');
+                });
+        });
+    </script>
+</body>
+</html>
