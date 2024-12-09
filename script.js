@@ -50,8 +50,8 @@ const translations = {
     }
 };
 
-// Initialize EmailJS
-emailjs.init('HCCGROUP247');
+// Initialize EmailJS with your user ID
+emailjs.init('HCCGROUP247'); // Replace with your EmailJS user ID
 
 // Switch language function
 function switchLanguage(lang) {
@@ -62,36 +62,40 @@ function switchLanguage(lang) {
         }
     });
 
+    // Update placeholders
     const placeholders = translations[lang].placeholders;
     if (placeholders) {
-        document.getElementById("name").setAttribute("placeholder", placeholders.name);
-        document.getElementById("email").setAttribute("placeholder", placeholders.email);
-        document.getElementById("message").setAttribute("placeholder", placeholders.message);
+        document.getElementById("name")?.setAttribute("placeholder", placeholders.name);
+        document.getElementById("email")?.setAttribute("placeholder", placeholders.email);
+        document.getElementById("message")?.setAttribute("placeholder", placeholders.message);
     }
 
+    // Adjust text direction and language
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
 }
 
-document.getElementById("language-switcher").addEventListener("change", function () {
+// Event listener for language switcher
+document.getElementById("language-switcher")?.addEventListener("change", function () {
     switchLanguage(this.value);
 });
 
-// Default language
+// Set default language on page load
 document.addEventListener("DOMContentLoaded", () => {
-    switchLanguage("en");
+    switchLanguage("en"); // Default language is English
+});
 
-    document.getElementById('contact-form').addEventListener('submit', function(event) {
-        event.preventDefault();
+// Contact form submission handling with EmailJS
+document.getElementById('contact-form')?.addEventListener('submit', function(event) {
+    event.preventDefault(); // Prevent default form submission
 
-        emailjs.sendForm('HCCGROUP247', 'template_bcvj1l5', this)
-            .then(response => {
-                console.log('Success:', response);
-                alert('Your message has been sent!');
-            })
-            .catch(error => {
-                console.error('Error:', error);
-                alert('Oops! Something went wrong.');
-            });
-    });
+    // Send the form data to EmailJS
+    emailjs.sendForm('HCCGROUP247', 'template_bcvj1l5', this) // Replace with your Service ID and Template ID
+        .then(function(response) {
+            console.log('Success:', response);
+            alert('Your message has been sent!');
+        }, function(error) {
+            console.log('Error:', error);
+            alert('Oops! Something went wrong.');
+        });
 });
