@@ -25,7 +25,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for more contrast */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 header .logo-container {
@@ -35,7 +35,7 @@ header .logo-container {
 }
 
 header .logo-image {
-    max-width: 100px;
+    max-width: 80px;
     height: auto;
     margin-right: 10px;
 }
@@ -64,16 +64,42 @@ header nav ul li a,
     text-decoration: none;
     padding: 0.5rem;
     font-size: 1rem;
-    transition: background 0.3s ease; /* Smooth hover effect */
+    transition: background 0.3s ease;
 }
 
 header nav ul li a:hover {
     background: #555;
+    border-radius: 5px;
+}
+
+/* Mobile Menu Toggle */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    cursor: pointer;
+    margin-right: 1rem;
+}
+
+.menu-toggle .bar {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    transition: all 0.3s ease;
+}
+
+.nav-list {
+    display: flex;
+}
+
+.nav-list.active {
+    display: flex;
+    flex-direction: column;
 }
 
 /* Sections */
 section {
-    margin-top: 7rem; /* Add more margin to accommodate the fixed header */
+    margin-top: 7rem; /* Adjusted to accommodate the fixed header */
     padding: 2rem 0;
     text-align: center;
 }
@@ -114,22 +140,39 @@ footer {
         margin-bottom: 1rem;
     }
 
-    header nav ul {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-list {
+        display: none;
+        width: 100%;
         flex-direction: column;
-        margin: 0;
+        background: #444;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        z-index: 999;
+    }
+
+    .nav-list.active {
+        display: flex;
     }
 
     header nav ul li {
-        margin: 0.5rem 0;
+        margin: 0;
     }
 
     header nav ul li a {
         font-size: 1.2rem;
-        padding: 0.8rem;
+        padding: 1rem;
+        display: block;
+        text-align: center;
     }
 
     /* Adjust the language switcher position */
     #language-switcher {
-        margin-top: 1rem;
+        margin: 1rem auto;
+        width: 90%;
     }
 }
