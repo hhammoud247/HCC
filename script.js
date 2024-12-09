@@ -50,9 +50,6 @@ const translations = {
     }
 };
 
-// Initialize EmailJS with your user ID
-emailjs.init('HCCGROUP247'); // Replace with your EmailJS user ID
-
 // Switch language function
 function switchLanguage(lang) {
     document.querySelectorAll("[data-lang-key]").forEach(element => {
@@ -85,17 +82,39 @@ document.addEventListener("DOMContentLoaded", () => {
     switchLanguage("en"); // Default language is English
 });
 
-// Contact form submission handling with EmailJS
+// Handle form submission (Formspree)
 document.getElementById('contact-form')?.addEventListener('submit', function(event) {
     event.preventDefault(); // Prevent default form submission
 
-    // Send the form data to EmailJS
-    emailjs.sendForm('HCCGROUP247', 'template_bcvj1l5', this) // Replace with your Service ID and Template ID
-        .then(function(response) {
-            console.log('Success:', response);
+    // Simple form validation
+    const name = document.getElementById('name').value;
+    const email = document.getElementById('email').value;
+    const message = document.getElementById('message').value;
+
+    if (!name || !email || !message) {
+        alert('Please fill out all fields');
+        return;
+    }
+
+    // Set Formspree endpoint as action for the form submission
+    const formAction = 'https://formspree.io/f/xwpkjbpk';  // Formspree action URL
+    const formData = new FormData(this);
+
+    // Create a POST request to Formspree API
+    fetch(formAction, {
+        method: 'POST',
+        body: formData,
+    })
+    .then(response => {
+        if (response.ok) {
             alert('Your message has been sent!');
-        }, function(error) {
-            console.log('Error:', error);
-            alert('Oops! Something went wrong.');
-        });
+            this.reset(); // Reset the form after successful submission
+        } else {
+            alert('Something went wrong. Please try again.');
+        }
+    })
+    .catch(error => {
+        console.log('Error:', error);
+        alert('Oops! Something went wrong.');
+    });
 });
