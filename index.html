@@ -16,12 +16,7 @@
                 <h1 class="logo">HARB Consulting and Construction</h1> 
             </div>
             <nav>
-                <div class="menu-toggle" id="mobile-menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </div>
-                <ul class="nav-list">
+                <ul>
                     <li><a href="#home" data-lang-key="home">Home</a></li>
                     <li><a href="#about" data-lang-key="about">About Us</a></li>
                     <li><a href="#services" data-lang-key="services">Services</a></li>
@@ -43,24 +38,24 @@
         <section id="home">
             <div class="container">
                 <h2 data-lang-key="welcome">Welcome to HARB Consulting and Construction</h2>
-                <p data-lang-key="home-desc">We provide exceptional construction and consultancy services to meet your needs.</p>
+                <p data-lang-key="homeDesc">We provide exceptional construction and consultancy services to meet your needs.</p>
             </div>
         </section>
 
         <section id="about">
             <div class="container">
-                <h2 data-lang-key="about-title">About Us</h2>
-                <p data-lang-key="about-desc">At HARB Consulting and Construction, we specialize in innovative solutions for building projects.</p>
+                <h2 data-lang-key="aboutTitle">About Us</h2>
+                <p data-lang-key="aboutDesc">At HARB Consulting and Construction, we specialize in innovative solutions for building projects.</p>
             </div>
         </section>
 
         <section id="services">
             <div class="container">
-                <h2 data-lang-key="services-title">Our Services</h2>
+                <h2 data-lang-key="servicesTitle">Our Services</h2>
                 <ul>
-                    <li data-lang-key="service-1">Construction Management</li>
-                    <li data-lang-key="service-2">Architectural Design</li>
-                    <li data-lang-key="service-3">Project Consultancy</li>
+                    <li data-lang-key="service1">Construction Management</li>
+                    <li data-lang-key="service2">Architectural Design</li>
+                    <li data-lang-key="service3">Project Consultancy</li>
                 </ul>
             </div>
         </section>
@@ -68,18 +63,18 @@
         <!-- Contact Section -->
         <section id="contact">
             <div class="container">
-                <h2 data-lang-key="contact-title">Contact Us</h2>
+                <h2 data-lang-key="contactTitle">Contact Us</h2>
                 <form id="contact-form" action="https://formspree.io/f/xwpkjbpk" method="POST">
-                    <label for="name" data-lang-key="name-label">Name</label>
+                    <label for="name" data-lang-key="nameLabel">Name</label>
                     <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
-                    <label for="email" data-lang-key="email-label">Email</label>
+                    <label for="email" data-lang-key="emailLabel">Email</label>
                     <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
-                    <label for="message" data-lang-key="message-label">Message</label>
+                    <label for="message" data-lang-key="messageLabel">Message</label>
                     <textarea id="message" name="message" placeholder="Enter your message" required></textarea>
 
-                    <button type="submit" data-lang-key="send-button">Send</button>
+                    <button type="submit" data-lang-key="sendButton">Send</button>
                 </form>
             </div>
         </section>
@@ -93,13 +88,6 @@
     </footer>
 
     <!-- Scripts -->
-    <script>
-        // Mobile menu toggle
-        const mobileMenu = document.getElementById('mobile-menu');
-        const navList = document.querySelector('.nav-list');
-        mobileMenu.addEventListener('click', () => {
-            navList.classList.toggle('active');
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
