@@ -16,7 +16,12 @@
                 <h1 class="logo">HARB Consulting and Construction</h1> 
             </div>
             <nav>
-                <ul>
+                <div class="menu-toggle" id="mobile-menu">
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                    <span class="bar"></span>
+                </div>
+                <ul class="nav-list">
                     <li><a href="#home" data-lang-key="home">Home</a></li>
                     <li><a href="#about" data-lang-key="about">About Us</a></li>
                     <li><a href="#services" data-lang-key="services">Services</a></li>
@@ -88,6 +93,13 @@
     </footer>
 
     <!-- Scripts -->
-    <script src="script.js"></script>
+    <script>
+        // Mobile menu toggle
+        const mobileMenu = document.getElementById('mobile-menu');
+        const navList = document.querySelector('.nav-list');
+        mobileMenu.addEventListener('click', () => {
+            navList.classList.toggle('active');
+        });
+    </script>
 </body>
 </html>
