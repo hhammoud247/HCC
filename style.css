@@ -1,0 +1,135 @@
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Header */
+header {
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Added shadow for more contrast */
+}
+
+header .logo-container {
+    display: flex;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+header .logo-image {
+    max-width: 100px;
+    height: auto;
+    margin-right: 10px;
+}
+
+header .logo {
+    font-size: 1.8rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: #fff;
+}
+
+/* Navigation Styling */
+header nav ul {
+    list-style: none;
+    display: flex;
+    margin-right: 1rem;
+}
+
+header nav ul li {
+    margin-left: 1rem;
+}
+
+header nav ul li a,
+#language-switcher {
+    color: #fff;
+    text-decoration: none;
+    padding: 0.5rem;
+    font-size: 1rem;
+    transition: background 0.3s ease; /* Smooth hover effect */
+}
+
+header nav ul li a:hover {
+    background: #555;
+}
+
+/* Sections */
+section {
+    margin-top: 7rem; /* Add more margin to accommodate the fixed header */
+    padding: 2rem 0;
+    text-align: center;
+}
+
+section h2 {
+    margin-bottom: 1rem;
+    color: #333;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section ul li {
+    margin: 0.5rem 0;
+}
+
+/* Footer */
+footer {
+    text-align: center;
+    background: #333;
+    color: #fff;
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+
+/* Media Query for Mobile */
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 1rem;
+    }
+
+    header .logo-container {
+        margin-left: 0;
+        margin-bottom: 1rem;
+    }
+
+    header nav ul {
+        flex-direction: column;
+        margin: 0;
+    }
+
+    header nav ul li {
+        margin: 0.5rem 0;
+    }
+
+    header nav ul li a {
+        font-size: 1.2rem;
+        padding: 0.8rem;
+    }
+
+    /* Adjust the language switcher position */
+    #language-switcher {
+        margin-top: 1rem;
+    }
+}
