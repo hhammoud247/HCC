@@ -52,7 +52,6 @@ const translations = {
 
 // Switch language function
 function switchLanguage(lang) {
-    // Change text content
     document.querySelectorAll("[data-lang-key]").forEach(element => {
         const key = element.getAttribute("data-lang-key");
         if (translations[lang][key]) {
@@ -68,9 +67,12 @@ function switchLanguage(lang) {
         document.getElementById("message")?.setAttribute("placeholder", placeholders.message);
     }
 
-    // Adjust text direction and language attributes for RTL support
+    // Adjust text direction and language
     document.documentElement.lang = lang;
     document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
+
+    // Store selected language in localStorage
+    localStorage.setItem("lang", lang);
 }
 
 // Event listener for language switcher
@@ -80,10 +82,7 @@ document.getElementById("language-switcher")?.addEventListener("change", functio
 
 // Set default language on page load
 document.addEventListener("DOMContentLoaded", () => {
-    // Load the language from localStorage (if set) or default to English
     const savedLanguage = localStorage.getItem("lang") || "en";
     switchLanguage(savedLanguage);
-
-    // Set the language selection dropdown to the saved language
     document.getElementById("language-switcher").value = savedLanguage;
 });
